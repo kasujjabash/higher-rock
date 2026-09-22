@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!-- The Higher Rock Foundation — homepage -->
+<!-- Quiet family-foundation aesthetic. Brand palette: warm brown + dusty blue on cream. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=8d429e4e-a474-4396-ac14-95624dcb6705
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=8d429e4e-a474-4396-ac14-95624dcb6705">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Higher Rock Foundation</title>
+<meta name="description" content="The Higher Rock Foundation is a family foundation that stewards God's abundance to empower ministries that multiply blessings and transform lives across generations.">
+<link rel="icon" type="image/png" href="assets/mark-blue.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b211a;          /* deep warm brown-black */
+    --brown:#4e3c31;        /* brand brown (from wordmark) */
+    --brown-soft:#6a564a;
+    --cream:#f7f3ea;        /* warm paper */
+    --cream-2:#efe9dc;
+    --sand:#e4dac8;
+    --blue:#a4bbd4;         /* brand dusty blue (from mark) */
+    --blue-2:#b5c1d6;
+    --blue-deep:#6f88a8;    /* darker blue for text on light */
+    --line:rgba(43,33,26,.13);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* subtle paper grain */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.55;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-deep);font-weight:600}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:10;background:rgba(247,243,234,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1140px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:0}
+  .brand img{height:46px;width:auto;display:block}
+  .navlinks{display:flex;gap:30px;list-style:none;align-items:center}
+  .navlinks a{color:var(--brown);text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.02em;transition:color .2s}
+  .navlinks a:hover{color:var(--blue-deep)}
+  @media(max-width:760px){.navlinks{display:none}.brand img{height:40px}}
+
+  /* HERO */
+  .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;
+    background:
+      radial-gradient(120% 95% at 78% 8%, rgba(164,187,212,.30), transparent 58%),
+      linear-gradient(162deg,#4a3b30 0%, #36291f 52%, #271d16 100%);
+  }
+  .hero-bg::after{content:"";
+    position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ffffff' stop-opacity='.05'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='0,100%25 38%25,100%25 0,42%25' fill='url(%23m)'/%3E%3Cpolygon points='30%25,100%25 78%25,100%25 18%25,30%25' fill='url(%23m)'/%3E%3C/svg%3E");
+    opacity:.9}
+  .hero-mark{position:absolute;right:-40px;top:8%;width:min(46vw,560px);opacity:.06;z-index:1;filter:brightness(0) invert(1)}
+  .hero-inner{position:relative;z-index:2;padding:0 32px 96px;max-width:1140px;margin:0 auto;width:100%}
+  .hero .eyebrow{color:#c4d2e4}
+  .hero h1{font-family:var(--serif);color:var(--cream);font-weight:500;
+    font-size:clamp(2.05rem,4.7vw,3.7rem);line-height:1.12;letter-spacing:-.01em;
+    max-width:19ch;margin:18px 0 22px;text-wrap:balance}
+  .hero p{color:rgba(247,243,234,.84);max-width:50ch;font-size:1.06rem;font-weight:300}
+  .verse{margin-top:30px;font-family:var(--serif);font-style:italic;color:#c4d2e4;font-size:1.02rem}
+
+  /* SECTION SHELL */
+  section{position:relative;z-index:2}
+  .pad{padding:100px 0}
+  .sec-head{font-family:var(--serif);font-weight:500;font-size:clamp(1.65rem,3vw,2.35rem);letter-spacing:-.01em;margin:10px 0 0;color:var(--brown)}
+  .sec-intro{max-width:60ch;margin-top:18px;color:var(--brown-soft);font-size:1.06rem}
+
+  /* OUR HEART */
+  .heart{background:var(--cream-2)}
+  .heart .body{max-width:62ch;margin-top:26px}
+  .heart .body p{margin-bottom:18px;font-size:1.1rem;color:#3a2f26}
+  .pullquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.55rem,3.4vw,2.45rem);
+    color:var(--blue-deep);line-height:1.25;max-width:20ch;margin:58px auto 0;text-align:center}
+
+  /* WHERE WE WORK */
+  .regions{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  @media(max-width:880px){.regions{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.regions{grid-template-columns:1fr}}
+  .region{background:var(--cream);border:1px solid var(--line);border-radius:7px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+  .region:hover{transform:translateY(-4px);box-shadow:0 14px 34px -18px rgba(43,33,26,.4)}
+  .region .img{aspect-ratio:4/3;display:flex;align-items:flex-end;padding:14px;
+    background:linear-gradient(150deg,var(--blue-2),#8ea7c4);color:rgba(43,33,26,.42);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
+  .region:nth-child(2) .img{background:linear-gradient(150deg,var(--sand),#cdbf9f)}
+  .region:nth-child(3) .img{background:linear-gradient(150deg,#b9c8b4,#94aa8e)}
+  .region:nth-child(4) .img{background:linear-gradient(150deg,#d8c4b3,#b79a83)}
+  .region .txt{padding:20px}
+  .region h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-bottom:8px;color:var(--brown)}
+  .region .focus{font-size:.93rem;color:var(--brown-soft);min-height:4.2em}
+  .region .feat{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--blue-deep);font-weight:600;letter-spacing:.02em}
+
+  /* FROM THE FIELD */
+  .field{background:var(--ink);color:var(--cream)}
+  .field .sec-head{color:var(--cream)}
+  .field .eyebrow{color:#c4d2e4}
+  .field .sec-intro{color:rgba(247,243,234,.74)}
+  .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+  @media(max-width:880px){.feed{grid-template-columns:1fr}}
+  .story{background:rgba(247,243,234,.04);border:1px solid rgba(247,243,234,.12);border-radius:7px;overflow:hidden;transition:border-color .25s ease}
+  .story:hover{border-color:rgba(164,187,212,.5)}
+  .story .img{aspect-ratio:16/10;background:linear-gradient(150deg,#46382c,#2f261d);
+    display:flex;align-items:center;justify-content:center;color:rgba(247,243,234,.26);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
+  .story .txt{padding:22px}
+  .story .meta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#c4d2e4;font-weight:600}
+  .story h3{font-family:var(--serif);font-weight:500;font-size:1.26rem;color:var(--cream);margin:10px 0 10px}
+  .story p{font-size:.92rem;color:rgba(247,243,234,.76);font-weight:300}
+  .sample-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+    color:#c4d2e4;border:1px solid rgba(196,210,228,.4);border-radius:3px;padding:2px 7px;margin-bottom:12px}
+
+  /* PARTNERS */
+  .partners{background:var(--cream-2)}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  @media(max-width:880px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.pgrid{grid-template-columns:1fr}}
+  .pcard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 16px 38px -20px rgba(43,33,26,.4)}
+  .pcard .logo{height:46px;display:flex;align-items:center}
+  .pcard .logo img{max-height:42px;max-width:175px;width:auto;object-fit:contain}
+  .pcard .logo .word{font-family:var(--serif);font-size:1.32rem;font-weight:500;color:var(--brown)}
+  .pcard .place{margin-top:22px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);font-weight:600}
+  .pcard .what{margin-top:8px;font-size:.92rem;color:var(--brown-soft);line-height:1.52}
+
+  /* INSTAGRAM */
+  .insta{background:var(--cream-2)}
+  .insta .eyrow{display:flex;align-items:center;gap:10px}
+  .insta .eyrow svg{width:20px;height:20px;flex:none}
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  @media(max-width:760px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
+  .ig-post{aspect-ratio:1/1;border-radius:6px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px}
+  .ig-post span{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:rgba(43,33,26,.5);padding:3px 8px;border-radius:3px}
+  .ig-btn{margin-top:32px;display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#27313e;border-radius:6px;padding:13px 28px;font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.03em;cursor:pointer;text-decoration:none;transition:background .2s}
+  .ig-btn:hover{background:#b8cae0}
+  .ig-btn svg{width:18px;height:18px}
+
+  /* NOTE ON GIVING */
+  .giving{background:var(--cream);position:relative;overflow:hidden}
+  .giving .mark-wm{position:absolute;right:-60px;bottom:-60px;width:min(40vw,380px);opacity:.05;z-index:0}
+  .giving .wrap{position:relative;z-index:1}
+  .giving .body{max-width:60ch;margin-top:24px}
+  .giving .body p{margin-bottom:16px;color:#3a2f26;font-size:1.06rem}
+  .giving .body .lead{font-family:var(--serif);font-size:1.24rem;color:var(--brown)}
+
+  /* CONTACT */
+  .contact{background:var(--brown);color:var(--cream)}
+  .contact .sec-head{color:var(--cream)}
+  .contact .eyebrow{color:#c4d2e4}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;align-items:start}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:34px}}
+  .contact .lead{font-size:1.06rem;color:rgba(247,243,234,.85);max-width:32ch}
+  .contact .email{margin-top:24px;font-family:var(--serif);font-size:1.3rem;color:#c4d2e4}
+  .form label{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,243,234,.62);margin-bottom:7px;font-weight:600}
+  .form .field-row{margin-bottom:20px}
+  .form input,.form textarea{width:100%;background:rgba(247,243,234,.07);border:1px solid rgba(247,243,234,.22);
+    border-radius:6px;padding:13px 15px;color:var(--cream);font-family:var(--sans);font-size:.95rem}
+  .form input::placeholder,.form textarea::placeholder{color:rgba(247,243,234,.4)}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--blue)}
+  .form textarea{min-height:120px;resize:vertical}
+  .btn{margin-top:6px;background:var(--blue);color:#27313e;border:none;border-radius:6px;
+    padding:13px 32px;font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.04em;cursor:pointer;transition:background .2s}
+  .btn:hover{background:#b8cae0}
+  .form .note{margin-top:14px;font-size:.82rem;color:rgba(247,243,234,.55);max-width:34ch}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(247,243,234,.62);text-align:center;padding:58px 32px}
+  footer .flogo{height:62px;width:auto;margin:0 auto 6px;display:block}
+  footer .fverse{font-family:var(--serif);font-style:italic;color:#c4d2e4;margin:16px 0;font-size:.96rem}
+  footer .floc{font-size:.85rem;letter-spacing:.06em}
+  footer .fleg{font-size:.74rem;margin-top:18px;color:rgba(247,243,234,.42)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .reveal.d2{animation-delay:.12s}.reveal.d3{animation-delay:.24s}.reveal.d4{animation-delay:.36s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav>
+    <a class="brand" href="#top" aria-label="The Higher Rock Foundation home">
+      <img src="assets/logo-brown.png" alt="The Higher Rock Foundation">
+    </a>
+    <ul class="navlinks">
+      <li><a href="#heart">Our Heart</a></li>
+      <li><a href="#work">Where We Work</a></li>
+      <li><a href="#field">From the Field</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <img class="hero-mark" src="assets/mark-white.png" alt="">
+  <div class="hero-inner">
+    <div class="eyebrow reveal">A family foundation</div>
+    <h1 class="reveal d2">We steward God's abundance to empower ministries that multiply blessings and transform lives across generations.</h1>
+    <p class="reveal d3">Quietly, and for the long haul, we walk alongside a small circle of trusted partners doing extraordinary work in their own communities.</p>
+    <div class="verse reveal d4">&ldquo;Lead me to the rock that is higher than I.&rdquo; &mdash; Psalm 61:2</div>
+  </div>
+</section>
+
+<!-- OUR HEART -->
+<section class="heart pad" id="heart">
+  <div class="wrap">
+    <div class="eyebrow">Our Heart</div>
+    <h2 class="sec-head">Faithful with what we&rsquo;ve been given</h2>
+    <div class="body">
+      <p>The Higher Rock Foundation is a family foundation. Each year we set aside a portion of what we&rsquo;ve been entrusted with and give it away &mdash; to ministries and leaders we know, trust, and have come to love.</p>
+      <p>We believe that everything we have is a gift, held in trust for a season. So we try to be faithful with it: giving generously, giving patiently, and staying close enough to the work to celebrate what God is doing through the people on the ground.</p>
+      <p>We are not the story here. The leaders we support are &mdash; and the families and communities whose lives are being changed for generations to come.</p>
+    </div>
+    <div class="pullquote">&ldquo;We don&rsquo;t write a check and walk away. We stay.&rdquo;</div>
+  </div>
+</section>
+
+<!-- WHERE WE WORK -->
+<section class="pad" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Where We Work</div>
+    <h2 class="sec-head">Four places, chosen through relationship</h2>
+    <p class="sec-intro">Our giving is concentrated in four places, chosen through years of relationship rather than a map. In each, we back local leaders who understand their own communities far better than we ever could.</p>
+    <div class="regions">
+      <div class="region">
+        <div class="img"></div>
+        <div class="txt">
+          <h3>Uganda</h3>
+          <p class="focus">Youth training, employment, and enterprise that gives young people a future.</p>
+          <div class="feat">Featured: era92 Group</div>
+        </div>
+      </div>
+      <div class="region">
+        <div class="img"></div>
+        <div class="txt">
+          <h3>Madagascar</h3>
+          <p class="focus">Church planting, schools, and health care in remote communities.</p>
+          <div class="feat">Featured: Jesus Family Kingdom</div>
+        </div>
+      </div>
+      <div class="region">
+        <div class="img"></div>
+        <div class="txt">
+          <h3>DR Congo</h3>
+          <p class="focus">Schools that keep children learning in conflict-affected communities.</p>
+          <div class="feat">Featured: Justice Rising</div>
+        </div>
+      </div>
+      <div class="region">
+        <div class="img"></div>
+        <div class="txt">
+          <h3>United States</h3>
+          <p class="focus">Ministries and causes close to home in Southern California and beyond.</p>
+          <div class="feat">Featured: local ministries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FROM THE FIELD -->
+<section class="field pad" id="field">
+  <div class="wrap">
+    <div class="eyebrow">From the Field</div>
+    <h2 class="sec-head">What God is doing, as it unfolds</h2>
+    <p class="sec-intro">This is where we share the milestones, the harvests, and the answered prayers. We add to it as the work unfolds.</p>
+    <div class="feed">
+      <div class="story">
+        <div class="img"></div>
+        <div class="txt">
+          <div class="meta">Uganda &middot; Spring 2026</div>
+          <h3>A new cohort begins in Kampala</h3>
+          <p>This spring, 60 young people walked through the doors of our partner&rsquo;s training hub for the first time. By year&rsquo;s end the goal is simple and audacious: a job, a skill, and a way forward for every one of them.</p>
+        </div>
+      </div>
+      <div class="story">
+        <div class="img"></div>
+        <div class="txt">
+          <div class="meta">DR Congo &middot; Spring 2026</div>
+          <h3>Clean water reaches a hillside village</h3>
+          <p>A community that walked hours for water now has a well within reach. We supported it quietly; the credit belongs to the local team who built it and the families who will steward it for years to come.</p>
+        </div>
+      </div>
+      <div class="story">
+        <div class="img"></div>
+        <div class="txt">
+          <div class="meta">Madagascar &middot; Autumn 2025</div>
+          <h3>Standing with the church in the highlands</h3>
+          <p>Our partners on the ground continue to serve faithfully in a difficult season. This year&rsquo;s gift goes toward rebuilding the church roof. Please keep this work in your prayers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners pad" id="partners">
+  <div class="wrap">
+    <div class="eyebrow">Partners We Walk With</div>
+    <h2 class="sec-head">Backing organizations bringing justice, close to the ground</h2>
+    <p class="sec-intro">These are the organizations and leaders we are privileged to support &mdash; most of them for many years.</p>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="logo"><img src="assets/partners/asone_brown.png" alt="AsOne Ministries"></div>
+        <div class="place">Uganda</div>
+        <div class="what">Locally-led schools, clinics, farms, and businesses in rural communities.</div>
+      </div>
+      <div class="pcard">
+        <div class="logo"><img src="assets/partners/era92_brown.png" alt="era92 Group"></div>
+        <div class="place">Uganda</div>
+        <div class="what">Training, jobs, and capital for young people in Kampala&rsquo;s slums and settlements.</div>
+      </div>
+      <div class="pcard">
+        <div class="logo"><img src="assets/partners/justicerising_brown.png" alt="Justice Rising"></div>
+        <div class="place">DR Congo</div>
+        <div class="what">Schools that keep children learning in conflict-affected communities.</div>
+      </div>
+      <div class="pcard">
+        <div class="logo"><span class="word">Jesus Family Kingdom</span></div>
+        <div class="place">Madagascar</div>
+        <div class="what">Church planting, schools, and health care in remote communities.</div>
+      </div>
+      <div class="pcard">
+        <div class="logo"><img src="assets/partners/careforchildren_brown.png" alt="Care for Children"></div>
+        <div class="place">Asia</div>
+        <div class="what">Helping orphaned and vulnerable children grow up in local families.</div>
+      </div>
+      <div class="pcard">
+        <div class="logo"><span class="word">Acres of Life</span></div>
+        <div class="place">United States</div>
+        <div class="what">Partner profile coming soon.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta pad" id="instagram">
+  <div class="wrap">
+    <div class="eyrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#6f88a8" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.4" fill="#6f88a8" stroke="none"/></svg>
+      <span class="eyebrow">Follow Along</span>
+    </div>
+    <h2 class="sec-head" style="margin-top:10px">Updates from the field, as they happen</h2>
+    <p class="sec-intro">We share photos and short notes from our partners as the work unfolds. Follow along at @higherrockfoundation.</p>
+    <div class="ig-grid">
+      <div class="ig-post" style="background:linear-gradient(150deg,#b7c6da,#8ea7c4)"><span>Instagram post</span></div>
+      <div class="ig-post" style="background:linear-gradient(150deg,#e0d4bf,#c9b896)"><span>Instagram post</span></div>
+      <div class="ig-post" style="background:linear-gradient(150deg,#bcc9b4,#9aae8f)"><span>Instagram post</span></div>
+      <div class="ig-post" style="background:linear-gradient(150deg,#dcc7b6,#bb9d86)"><span>Instagram post</span></div>
+      <div class="ig-post" style="background:linear-gradient(150deg,#c9d2dd,#a3b3c8)"><span>Instagram post</span></div>
+      <div class="ig-post" style="background:linear-gradient(150deg,#e3d8c5,#cbb89a)"><span>Instagram post</span></div>
+    </div>
+    <a class="ig-btn" href="https://instagram.com/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#27313e" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.4" fill="#27313e" stroke="none"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+
+<!-- NOTE ON GIVING -->
+<section class="giving pad">
+  <img class="mark-wm" src="assets/mark-blue.png" alt="">
+  <div class="wrap">
+    <div class="eyebrow">A Note on Giving</div>
+    <h2 class="sec-head">We give through relationship</h2>
+    <div class="body">
+      <p class="lead">Our partnerships grow out of trust built over time, and our giving is directed to a small group of organizations we know personally.</p>
+      <p>For that reason, we do not accept unsolicited grant applications or proposals.</p>
+      <p>We say this gently, and with real respect for the many worthy causes in the world. If your work and ours seem deeply aligned, you are welcome to introduce yourself below &mdash; but please know we are not able to respond to most inquiries, and a message is never a guarantee of support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact pad" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get in Touch</div>
+    <h2 class="sec-head">For partners and friends</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="lead">For partners, friends, and those we already know &mdash; we&rsquo;d love to hear from you.</p>
+        <div class="email">hello@higherrockfoundation.org</div>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-family:var(--serif);font-size:1.15rem;color:#c4d2e4&quot;>Thank you for reaching out. We read every message, even when we&rsquo;re not able to reply to each one.</p>';">
+        <div class="field-row"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" required></div>
+        <div class="field-row"><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com" required></div>
+        <div class="field-row"><label for="msg">Message</label><textarea id="msg" placeholder="A few words&hellip;" required></textarea></div>
+        <button class="btn" type="submit">Send</button>
+        <p class="note">We read every message, even when we&rsquo;re not able to reply to each one.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="flogo" src="assets/logo-white.png" alt="The Higher Rock Foundation">
+  <div class="fverse">&ldquo;From him and through him and to him are all things.&rdquo; &mdash; Romans 11:36</div>
+  <div class="floc">Dana Point, California</div>
+  <div class="fleg">&copy; 2026 The Higher Rock Foundation. A private family foundation.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!-- The Higher Rock Foundation — homepage -->
+<!-- Layout structure modelled on austinstone.org: full-bleed hero, photo carousel,
+     alternating split bands, image-first card grids, multi-column footer.
+     Brand palette unchanged: warm brown + dusty blue on cream. -->
+<!-- IMAGE SLOTS: every <figure class="ph"> holds an <img> pointing at a file in
+     assets/images/. Drop the real photo in at that exact path and it appears.
+     Until then a labelled placeholder shows the path and recommended size. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=8d429e4e-a474-4396-ac14-95624dcb6705
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=8d429e4e-a474-4396-ac14-95624dcb6705">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Higher Rock Foundation</title>
+<meta name="description" content="The Higher Rock Foundation is a family foundation that stewards God's abundance to empower ministries that multiply blessings and transform lives across generations.">
+<link rel="icon" type="image/png" href="assets/mark-blue.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- austinstone.org uses Proxima Nova (sans) + Freight Text Pro (serif accents).
+     Both are licensed fonts, so the stack names them first and falls back to the
+     closest Google equivalents: Figtree and Source Serif 4. If you add an Adobe
+     Fonts kit for Proxima Nova / Freight Text Pro, they take over automatically. -->
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header id="siteHeader">
+  <nav>
+    <a class="brand" href="#top" aria-label="The Higher Rock Foundation home">
+      <img src="assets/logo-brown.png" alt="The Higher Rock Foundation">
+    </a>
+    <ul class="navlinks">
+      <li><a href="#heart">Our Heart</a></li>
+      <li><a href="#work">Where We Work</a></li>
+      <li><a href="#field">From the Field</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#giving">Giving</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="mailto:hello@higherrockfoundation.org">Get in Touch</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#heart">Our Heart</a>
+    <a href="#work">Where We Work</a>
+    <a href="#field">From the Field</a>
+    <a href="#partners">Partners</a>
+    <a href="#giving">Giving</a>
+    <a class="btn btn-primary" href="mailto:hello@higherrockfoundation.org">Get in Touch</a>
+  </div>
+</header>
+
+<!-- ============ HERO — full-bleed image + centred copy + dual CTA ============ -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <!-- BANNER · assets/images/hero.jpg — 2560px web version of
+         assets/images/field/family-showcasing-their-home.jpg (original kept at full size).
+         To swap the banner, replace assets/images/hero.jpg. -->
+    <img src="assets/images/hero.jpg" alt="A family showing their home" onerror="this.remove()">
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="eyebrow reveal">A Family Foundation</div>
+    <h1 class="reveal d2">We steward God&rsquo;s abundance to empower ministries.</h1>
+    <div class="verse reveal d3">&ldquo;Lead me to the rock that is higher than I.&rdquo; &mdash; Psalm 61:2</div>
+    <div class="btn-row reveal d4">
+      <a class="btn btn-blue" href="#heart">Our Heart
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline-light" href="#partners">Meet Our Partners</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WELCOME BAND ============ -->
+<section class="welcome">
+  <div class="wrap">
+    <div class="grid6">
+     <div class="inner reveal">
+      <h2>Multiply blessings and transform lives across generations.</h2>
+      <p>Quietly, and for the long haul, we walk alongside a small circle of trusted partners doing extraordinary work in their own communities.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#heart">Our Heart
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-outline" href="#work">Where We Work</a>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTINUOUS PHOTO MARQUEE ============ -->
+<!-- One card per photo. The row is finite: the section pins and the row scrolls
+     sideways until the last card has passed, then the page carries on. Add a
+     photo by copying one <figure> — the section grows its own scroll length. -->
+<section class="marquee-sec" aria-label="Photographs from our partners">
+ <div class="marquee-sticky">
+  <div class="marquee">
+    <div class="marquee-track">
+      <figure class="mq-item">
+        <span class="ph r-4x3">
+          <img src="assets/images/field/family-showcasing-their-home-2.jpg" alt="A family at home together" loading="lazy" onerror="this.remove()">
+        </span>
+        <figcaption class="cap">
+          <div class="place">Uganda</div>
+          <div class="what">Youth training, employment, and enterprise</div>
+        </figcaption>
+      </figure>
+      <figure class="mq-item">
+        <span class="ph r-4x3">
+          <img src="assets/images/field/group-buddies-relaxing-park.jpg" alt="Friends together in a park" loading="lazy" onerror="this.remove()">
+        </span>
+        <figcaption class="cap">
+          <div class="place">DR Congo</div>
+          <div class="what">Schools that keep children learning through conflict</div>
+        </figcaption>
+      </figure>
+      <figure class="mq-item">
+        <span class="ph r-4x3">
+          <img src="assets/images/field/group-buddies-relaxing-park-families.jpg" alt="Families gathered in a park" loading="lazy" onerror="this.remove()">
+        </span>
+        <figcaption class="cap">
+          <div class="place">Madagascar</div>
+          <div class="what">Church planting, schools, and health care</div>
+        </figcaption>
+      </figure>
+      <figure class="mq-item">
+        <span class="ph r-4x3">
+          <img src="assets/images/field/group-buddies-relaxing-park-smiles.jpg" alt="Friends laughing together outdoors" loading="lazy" onerror="this.remove()">
+        </span>
+        <figcaption class="cap">
+          <div class="place">United States</div>
+          <div class="what">Ministries and causes close to home</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ OUR HEART — full-bleed image + copy ============ -->
+<section class="heart" id="heart">
+  <div class="heart-grid">
+    <div class="heart-media reveal">
+      <img src="assets/images/field/OUR%20HEART.jpg" alt="Our heart" loading="lazy">
+      <div class="badge">
+        <b>Four</b>
+        <span>Places we give</span>
+      </div>
+    </div>
+    <div class="heart-copy reveal d2">
+      <div class="eyebrow">Our Heart</div>
+      <h2 class="sec-head">Faithful with what we&rsquo;ve been given</h2>
+      <p>The Higher Rock Foundation is a family foundation. Each year we set aside a portion of what we&rsquo;ve been entrusted with and give it away &mdash; to ministries and leaders we know, trust, and have come to love.</p>
+      <p>We believe that everything we have is a gift, held in trust for a season. So we try to be faithful with it: giving generously, giving patiently, and staying close enough to the work to celebrate what God is doing through the people on the ground.</p>
+      <p>We are not the story here. The leaders we support are &mdash; and the families and communities whose lives are being changed for generations to come.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#work">Where We Work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-outline" href="#giving">A Note on Giving</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PULLQUOTE BAND — quote left, CTA right ============ -->
+<section class="quoteband">
+  <div class="wrap-wide reveal">
+    <div class="qb-grid">
+      <div class="qb-quote">
+        <img class="qmark" src="assets/images/field/quote.svg" alt="" aria-hidden="true">
+        <blockquote class="pullquote">&ldquo;We don&rsquo;t write a check and walk away. We stay.&rdquo;</blockquote>
+      </div>
+      <div class="qb-action">
+        <div class="btn-row">
+          <a class="btn btn-light" href="#field">See What&rsquo;s Happening
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="attrib">The Higher Rock Foundation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHERE WE WORK — expanding panel gallery ============ -->
+<!-- One panel carries is-open as the resting state; hover/focus takes over from there.
+     Panels are plain <a> elements so they are keyboard reachable. -->
+<section class="pad" id="work">
+  <div class="wrap-wide">
+    <div class="split-head reveal">
+      <div>
+        <div class="eyebrow">Where We Work</div>
+        <h2 class="sec-head">Four places, chosen through relationship</h2>
+      </div>
+      <div class="split-head-aside">
+        <p class="sec-intro">Our giving is concentrated in four places, chosen through years of relationship rather than a map. In each, we back local leaders who understand their own communities far better than we ever could.</p>
+        <a class="btn btn-outline" href="#partners">View all partners
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="acc reveal d2">
+      <a class="acc-item is-open" href="#partners">
+        <img src="assets/images/field/group-buddies-relaxing-park-2.jpg" alt="Uganda" loading="lazy">
+        <div class="cap">
+          <h3>Uganda</h3>
+          <p>Youth training, employment, and enterprise that gives young people a future.</p>
+        </div>
+      </a>
+      <a class="acc-item" href="#partners">
+        <img src="assets/images/field/group-buddies-relaxing-park-hands.jpg" alt="Madagascar" loading="lazy">
+        <div class="cap">
+          <h3>Madagascar</h3>
+          <p>Church planting, schools, and health care in remote communities.</p>
+        </div>
+      </a>
+      <a class="acc-item" href="#partners">
+        <img src="assets/images/field/group-buddies-relaxing-park-families.jpg" alt="DR Congo" loading="lazy">
+        <div class="cap">
+          <h3>DR Congo</h3>
+          <p>Schools that keep children learning in conflict-affected communities.</p>
+        </div>
+      </a>
+      <a class="acc-item" href="#partners">
+        <img src="assets/images/field/family-showcasing-their-home-2.jpg" alt="United States" loading="lazy">
+        <div class="cap">
+          <h3>United States</h3>
+          <p>Ministries and causes close to home in Southern California and beyond.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FROM THE FIELD — sticky image + scrolling stories ============ -->
+<section class="field pad" id="field">
+  <div class="wrap-wide">
+    <div class="split-head reveal">
+      <div>
+        <div class="eyebrow">From the Field</div>
+        <h2 class="sec-head">What God is doing, as it unfolds</h2>
+      </div>
+      <div class="split-head-aside">
+        <p class="sec-intro">This is where we share the milestones, the harvests, and the answered prayers. We add to it as the work unfolds.</p>
+        <a class="btn btn-outline" href="#instagram">View all updates
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- full-bleed: the photo runs to the viewport edge, the story column pads itself -->
+  <div class="field-split">
+    <div class="field-media">
+      <div class="field-sticky reveal">
+        <img src="assets/images/field/group-buddies-relaxing-park-smiles.jpg" alt="From the field" loading="lazy">
+      </div>
+    </div>
+
+    <div class="field-stories">
+      <article class="fstory reveal">
+        <figure class="ph r-3x2">
+          <img src="assets/images/field/group-buddies-relaxing-park.jpg" alt="A new cohort begins in Kampala" loading="lazy">
+        </figure>
+        <div class="fstory-txt">
+          <div class="meta"><span class="place">Uganda</span><span class="when">Spring 2026</span></div>
+          <h3>A new cohort begins in Kampala</h3>
+          <p>This spring, 60 young people walked through the doors of our partner&rsquo;s training hub for the first time. By year&rsquo;s end the goal is simple and audacious: a job, a skill, and a way forward for every one of them.</p>
+          <a class="link-arrow" href="#instagram">Read the update
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="fstory reveal d2">
+        <figure class="ph r-3x2">
+          <img src="assets/images/field/group-buddies-relaxing-park-families.jpg" alt="Clean water reaches a hillside village" loading="lazy">
+        </figure>
+        <div class="fstory-txt">
+          <div class="meta"><span class="place">DR Congo</span><span class="when">Spring 2026</span></div>
+          <h3>Clean water reaches a hillside village</h3>
+          <p>A community that walked hours for water now has a well within reach. We supported it quietly; the credit belongs to the local team who built it and the families who will steward it for years to come.</p>
+          <a class="link-arrow" href="#instagram">Read the update
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="fstory reveal d3">
+        <figure class="ph r-3x2">
+          <img src="assets/images/field/group-buddies-relaxing-park-hands.jpg" alt="Standing with the church in the highlands" loading="lazy">
+        </figure>
+        <div class="fstory-txt">
+          <div class="meta"><span class="place">Madagascar</span><span class="when">Autumn 2025</span></div>
+          <h3>Standing with the church in the highlands</h3>
+          <p>Our partners on the ground continue to serve faithfully in a difficult season. This year&rsquo;s gift goes toward rebuilding the church roof. Please keep this work in your prayers.</p>
+          <a class="link-arrow" href="#instagram">Read the update
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ PARTNERS — card grid ============ -->
+<section class="partners pad" id="partners">
+  <div class="wrap-wide">
+    <div class="split-head reveal">
+      <div>
+        <div class="eyebrow">Partners We Walk With</div>
+        <h2 class="sec-head">Backing organizations bringing justice, close to the ground</h2>
+      </div>
+      <div class="split-head-aside">
+        <p class="sec-intro">These are the organizations and leaders we are privileged to support &mdash; most of them for many years.</p>
+        <a class="btn btn-outline" href="mailto:hello@higherrockfoundation.org">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <a class="pcard reveal" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><img src="assets/partners/asone_brown.png" alt="AsOne Ministries"></div>
+        <div class="place">Uganda</div>
+        <div class="what">Locally-led schools, clinics, farms, and businesses in rural communities.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+      <a class="pcard reveal d2" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><img src="assets/partners/era92_brown.png" alt="era92 Group"></div>
+        <div class="place">Uganda</div>
+        <div class="what">Training, jobs, and capital for young people in Kampala&rsquo;s slums and settlements.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+      <a class="pcard reveal d3" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><img src="assets/partners/justicerising_brown.png" alt="Justice Rising"></div>
+        <div class="place">DR Congo</div>
+        <div class="what">Schools that keep children learning in conflict-affected communities.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+      <a class="pcard reveal" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><span class="word">Jesus Family Kingdom</span></div>
+        <div class="place">Madagascar</div>
+        <div class="what">Church planting, schools, and health care in remote communities.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+      <a class="pcard reveal d2" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><img src="assets/partners/careforchildren_brown.png" alt="Care for Children"></div>
+        <div class="place">Asia</div>
+        <div class="what">Helping orphaned and vulnerable children grow up in local families.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+      <a class="pcard reveal d3" href="mailto:hello@higherrockfoundation.org">
+        <div class="logo"><span class="word">Acres of Life</span></div>
+        <div class="place">United States</div>
+        <div class="what">Partner profile coming soon.</div>
+        <div class="go"><span class="link-arrow">Visit partner
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WALKING TOGETHER — copy left, image bleeding right ============ -->
+<section class="ctaband">
+  <div class="cta-grid">
+    <div class="cta-copy reveal">
+      <div class="eyebrow">Walking Together</div>
+      <h2>Every gift is held in trust, and every partnership is built to last.</h2>
+      <p>We give patiently, stay close to the work, and celebrate what God is doing through the people on the ground.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#giving">A Note on Giving
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-outline" href="mailto:hello@higherrockfoundation.org">Contact Us</a>
+      </div>
+    </div>
+    <div class="cta-media reveal d2">
+      <img src="assets/images/field/WalkingTogether.jpg" alt="Walking together" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="insta pad" id="instagram" style="background:var(--cream-2)">
+  <div class="wrap-wide">
+    <div class="split-head reveal">
+      <div>
+        <div class="eyrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6f88a8" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.4" fill="#6f88a8" stroke="none"/></svg>
+          <span class="eyebrow">Follow Along</span>
+        </div>
+        <h2 class="sec-head">Updates from the field, as they happen</h2>
+      </div>
+      <div class="split-head-aside">
+        <p class="sec-intro">We share photos and short notes from our partners as the work unfolds. Follow along at @higherrockfoundation.</p>
+        <a class="btn btn-outline" href="https://instagram.com/" target="_blank" rel="noopener">@higherrockfoundation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+    <div class="ig-embed reveal">
+      <div class="elfsight-app-b3396581-868b-4c2d-a973-c3f4bd3347b5" data-elfsight-app-lazy></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A NOTE ON GIVING — heading left, the note right ============ -->
+<section class="giving pad" id="giving">
+  <img class="mark-wm" src="assets/mark-blue.png" alt="">
+  <div class="wrap-wide">
+    <div class="giving-grid reveal">
+      <div class="giving-head">
+        <div class="eyebrow">A Note on Giving</div>
+        <h2 class="sec-head">We give through relationship</h2>
+      </div>
+      <div class="giving-body">
+        <p class="lead">Our partnerships grow out of trust built over time, and our giving is directed to a small group of organizations we know personally.</p>
+        <p>For that reason, we do not accept unsolicited grant applications or proposals.</p>
+        <p>We say this gently, and with real respect for the many worthy causes in the world. If your work and ours seem deeply aligned, you are welcome to introduce yourself below &mdash; but please know we are not able to respond to most inquiries, and a message is never a guarantee of support.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="mailto:hello@higherrockfoundation.org">Introduce Yourself
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-outline" href="#heart">Read Our Heart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="foot-logo" href="#top" aria-label="The Higher Rock Foundation home">
+          <img src="assets/logo-brown.png" alt="The Higher Rock Foundation">
+        </a>
+        <div class="fverse">&ldquo;From him and through him and to him are all things.&rdquo; &mdash; Romans 11:36</div>
+        <div class="floc">Dana Point, California</div>
+      </div>
+      <div class="fleg">&copy; 2026 The Higher Rock Foundation.<br>A private family foundation.</div>
+    </div>
+
+    <div class="foot-bottom">
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#heart">Our Heart</a>
+        <a href="#work">Where We Work</a>
+        <a href="#field">From the Field</a>
+        <a href="#partners">Partners</a>
+        <a href="#giving">Giving</a>
+        <a href="mailto:hello@higherrockfoundation.org">Contact</a>
+      </nav>
+      <div class="socials">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:hello@higherrockfoundation.org" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- sticky header state ---- */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- mobile menu ---- */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A'){
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---- pinned, scroll-driven photo track ----
+     The section is given a height of one viewport plus the row's full travel.
+     Its inner panel sticks to the top, so while you scroll that extra distance
+     the page appears still and the row moves sideways instead — guaranteeing
+     every card is seen before the next section arrives.
+     Tune the look with the two constants below:
+       TILT  — each card's resting angle, cycled across the row
+       SWING — extra degrees a card turns across the whole run                */
+  var TILT  = [-11, 8, -7, 12];
+  var SWING = 20;
+
+  var mqSec   = document.querySelector('.marquee-sec');
+  var mqTrack = document.querySelector('.marquee-track');
+  var mqItems = mqTrack ? Array.prototype.slice.call(mqTrack.children) : [];
+
+  if (mqSec && mqTrack && !reduce) {
+    var travel = 0, queued = false;
+
+    var mqPanel = mqSec.querySelector('.marquee-sticky');
+
+    var measure = function(){
+      mqSec.style.height = '';                     // reset before measuring
+      travel = Math.max(0, mqTrack.scrollWidth - window.innerWidth);
+      // the pinned panel's own height (--photo-panel), plus the row's travel
+      mqSec.style.height = (mqPanel.offsetHeight + travel) + 'px';
+    };
+
+    var paint = function(){
+      queued = false;
+      // the panel pins CENTRED, so the pin engages when the section top reaches
+      // this offset (must match top: calc((100vh - --photo-panel) / 2) in the CSS)
+      var pinAt = (window.innerHeight - mqPanel.offsetHeight) / 2;
+      var top = mqSec.getBoundingClientRect().top;
+      var p = travel > 0 ? ((pinAt - top) / travel) : 0;
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+
+      mqTrack.style.transform = 'translate3d(' + (-p * travel).toFixed(2) + 'px,0,0)';
+
+      var spin = (p - 0.5) * SWING;
+      for (var i = 0; i < mqItems.length; i++) {
+        mqItems[i].style.transform =
+          'rotate(' + (TILT[i % TILT.length] + spin).toFixed(2) + 'deg)';
+      }
+    };
+
+    var onScroll = function(){
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    };
+
+    measure(); paint();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', function(){ measure(); paint(); });
+    // images settle late and change scrollWidth, so measure again once loaded
+    window.addEventListener('load', function(){ measure(); paint(); });
+  }
+
+  /* ---- Where We Work: exactly one panel open at a time ----
+     Pointer or keyboard focus moves the open state. `is-open` is only ever
+     moved from one panel to another, so a panel is always open — including
+     while the pointer sits in the gap between them. */
+  var acc = document.querySelector('.acc');
+  if (acc) {
+    var panels = Array.prototype.slice.call(acc.querySelectorAll('.acc-item'));
+    var openPanel = function(el){
+      if (el.classList.contains('is-open')) return;
+      for (var i = 0; i < panels.length; i++) panels[i].classList.remove('is-open');
+      el.classList.add('is-open');
+    };
+    panels.forEach(function(el){
+      el.addEventListener('mouseenter', function(){ openPanel(el); });
+      el.addEventListener('focus', function(){ openPanel(el); });
+    });
+  }
+
+  /* ---- parallax on the two large photographs ----
+     Writes a small pixel offset to --par each frame. Uses the `translate`
+     property (not `transform`) so it never fights the settle transition. */
+  var parEls = Array.prototype.slice.call(
+    document.querySelectorAll('.heart-media, .cta-media'));
+
+  if (parEls.length && !reduce) {
+    var PAR = 30;                    // max drift in px — raise for more movement
+    var parQueued = false;
+
+    var parPaint = function(){
+      parQueued = false;
+      var vh = window.innerHeight;
+      for (var i = 0; i < parEls.length; i++) {
+        var el = parEls[i], r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;   // off screen
+        // -1 when the element's centre sits at the viewport bottom, +1 at the top
+        var centre = r.top + r.height / 2;
+        var p = (centre - vh / 2) / (vh / 2 + r.height / 2);
+        p = p < -1 ? -1 : (p > 1 ? 1 : p);
+        el.style.setProperty('--par', (p * PAR).toFixed(1) + 'px');
+      }
+    };
+
+    var parScroll = function(){
+      if (!parQueued) { parQueued = true; requestAnimationFrame(parPaint); }
+    };
+
+    parPaint();
+    window.addEventListener('scroll', parScroll, {passive:true});
+    window.addEventListener('resize', parScroll);
+  }
+
+  /* ---- scroll reveal ---- */
+  var revealables = Array.prototype.filter.call(
+    document.querySelectorAll('.reveal'),
+    function(el){ return !el.closest('.hero'); }
+  );
+  if (reduce || !('IntersectionObserver' in window)){
+    revealables.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+    revealables.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
+
+</body>
+</html>
