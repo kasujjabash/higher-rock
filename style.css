@@ -149,7 +149,9 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
 .burger.open span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
 .mobile-menu{display:none;border-top:1px solid var(--line-2);background:var(--paper);padding:10px 22px 26px}
 .mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:14px 0;color:var(--brown);text-decoration:none;
+/* :not(.btn) so the CTA at the foot of the menu keeps its own colour and
+   pill shape instead of being painted brown-on-brown by this rule */
+.mobile-menu a:not(.btn){display:block;padding:14px 0;color:var(--brown);text-decoration:none;
   font-family:var(--sans);font-weight:600;font-size:1.1rem;border-bottom:1px solid var(--line-2)}
 .mobile-menu .btn{margin-top:22px;width:100%;justify-content:center}
 @media(max-width:1180px){.navlinks{gap:26px}.navlinks a{font-size:.95rem}}
@@ -235,6 +237,24 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
   .mq-item{transform:none!important}
   .marquee-track{transform:none!important}
 }
+/* Touch and small screens: the pinned, scroll-driven row becomes an ordinary
+   swipeable strip. Pinning fights native momentum scrolling on a phone, and a
+   340px card on a 390px screen crops its own caption, so here the cards are
+   sized to the viewport, sit flat, and snap one at a time. */
+@media(max-width:900px){
+  .marquee-sec{height:auto!important;padding-bottom:clamp(44px,7vw,80px)}
+  .marquee-sticky{position:static;height:auto;min-height:0;top:auto;
+    display:block;overflow:visible}
+  .marquee{padding:0;-webkit-mask-image:none;mask-image:none;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scroll-padding:0 22px;scrollbar-width:none;-ms-overflow-style:none}
+  .marquee::-webkit-scrollbar{display:none}
+  .marquee-track{transform:none!important;gap:14px;padding:0 22px}
+  .mq-item{transform:none!important;width:min(78vw,340px);scroll-snap-align:center}
+  .mq-item .cap{padding:64px 20px 20px}
+  .mq-item .what{font-size:1.06rem}
+}
 
 /* ---------- OUR HEART ----------
    Full-bleed split: the photograph fills its whole half of the section,
@@ -261,7 +281,10 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
 @media(max-width:900px){
   .heart-grid{grid-template-columns:1fr}
   .heart{--heart-min:0px}
-  .heart-media{aspect-ratio:4/3;min-height:0}
+  /* stacked, the photo sets its own height: a fixed 4/3 box letterboxed the
+     square photograph inside cream bars */
+  .heart-media{aspect-ratio:auto;min-height:0}
+  .heart-media img{position:static;width:100%;height:auto}
   .heart-copy{padding:clamp(44px,8vw,64px) 22px}
 }
 

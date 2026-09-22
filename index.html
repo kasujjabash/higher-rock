@@ -538,9 +538,18 @@
     var travel = 0, queued = false;
 
     var mqPanel = mqSec.querySelector('.marquee-sticky');
+    // below this width the row is a plain swipeable strip (see the matching
+    // @media block in style.css), so none of the pinning maths should run
+    var mqSmall = window.matchMedia('(max-width:900px)');
 
     var measure = function(){
       mqSec.style.height = '';                     // reset before measuring
+      if (mqSmall.matches) {                       // hand the row back to CSS
+        travel = 0;
+        mqTrack.style.transform = '';
+        for (var j = 0; j < mqItems.length; j++) mqItems[j].style.transform = '';
+        return;
+      }
       travel = Math.max(0, mqTrack.scrollWidth - window.innerWidth);
       // the pinned panel's own height (--photo-panel), plus the row's travel
       mqSec.style.height = (mqPanel.offsetHeight + travel) + 'px';
@@ -548,6 +557,7 @@
 
     var paint = function(){
       queued = false;
+      if (mqSmall.matches) return;
       // the panel pins CENTRED, so the pin engages when the section top reaches
       // this offset (must match top: calc((100vh - --photo-panel) / 2) in the CSS)
       var pinAt = (window.innerHeight - mqPanel.offsetHeight) / 2;
