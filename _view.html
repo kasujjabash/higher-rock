@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:0;background:#ccc}
+#f{border:0;display:block;background:#fff}
+</style></head><body>
+<iframe id="f" src="about:blank"></iframe>
+<script>
+var q=new URLSearchParams(location.search);
+var w=+q.get('w')||390, h=+q.get('h')||844, y=+q.get('y')||0, src=q.get('src')||'/index.html';
+var f=document.getElementById('f'); f.width=w; f.height=h; f.style.width=w+'px'; f.style.height=h+'px';
+f.src=src;
+f.addEventListener('load',function(){
+  var win=f.contentWindow;
+  win.scrollTo(0,y);
+  setTimeout(function(){ win.scrollTo(0,y); win.dispatchEvent(new Event('scroll')); },300);
+});
+</script></body></html>
