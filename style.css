@@ -197,7 +197,7 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
 .welcome p{margin-top:24px;font-size:1.08rem;color:var(--brown-soft);font-weight:300;max-width:68ch}
 @media(max-width:900px){.welcome .grid6{grid-template-columns:1fr}.welcome .inner{grid-column:1 / -1}}
 
-/* ---------- SCROLL-ROTATED PHOTO TRACK ----------
+/* ---------- SCROLL-ROTATED PHOTO TRACK / Its commented out for now----------
    The row travels sideways and each card turns as the section passes through
    the viewport. Driven from JS (see bottom of page) so it works in every
    browser, not just the ones with CSS scroll-driven animations. */
