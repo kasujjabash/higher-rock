@@ -317,6 +317,7 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
 .qmark{display:block;width:clamp(56px,6vw,96px);height:auto;
   margin-bottom:clamp(18px,2.2vw,30px);
   filter:brightness(0) invert(1);opacity:.5}
+/* the quote mark sits above the grid, so the CTA centres on the quote text itself */
 .qb-grid{display:grid;grid-template-columns:1fr minmax(210px,auto);
   gap:clamp(40px,6vw,96px);align-items:center}
 .qb-action{display:flex;flex-direction:column;justify-content:center;
@@ -493,7 +494,7 @@ header nav{display:flex;align-items:center;justify-content:space-between;gap:24p
 .pcard{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:32px 30px;
   display:flex;flex-direction:column;text-decoration:none;color:inherit;
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
-.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(43,33,26,.2)}
+a.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(43,33,26,.2)}
 .pcard .logo{height:48px;display:flex;align-items:center}
 .pcard .logo img{max-height:42px;max-width:180px;width:auto;object-fit:contain}
 .pcard .logo .word{font-family:var(--sans);font-size:1.3rem;font-weight:700;color:var(--brown);
